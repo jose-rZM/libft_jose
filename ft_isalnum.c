@@ -6,7 +6,7 @@
 /*   By: jramire2 <jramire2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 20:09:53 by jramire2          #+#    #+#             */
-/*   Updated: 2024/09/10 20:09:54 by jramire2         ###   ########.fr       */
+/*   Updated: 2024/09/11 13:19:07 by jramire2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	ft_isalnum(int c)
 {
-	return (ft_isalnum(c) || ft_isdigit(c));
+	return (ft_isalpha(c) || ft_isdigit(c));
 }
