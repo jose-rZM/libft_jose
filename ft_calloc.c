@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jramire2 <jramire2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/11 13:27:00 by jramire2          #+#    #+#             */
-/*   Updated: 2024/09/12 17:07:21 by jramire2         ###   ########.fr       */
+/*   Created: 2024/09/12 18:49:07 by jramire2          #+#    #+#             */
+/*   Updated: 2024/09/12 18:51:42 by jramire2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t	i;
+	void	*allocated;
+	size_t	total;
 
-	if (src < dest)
-	{
-		i = n;
-		while (i > 0)
-		{
-			i--;
-			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
-		}
-	}
-	else
-	{
-		ft_memcpy(dest, src, n);
-	}
-	return (dest);
+	total = nmemb * size;
+	allocated = malloc(total);
+	if (allocated == NULL)
+		return (NULL);
+	ft_memset(allocated, 0, total);
+	return (allocated);
 }
