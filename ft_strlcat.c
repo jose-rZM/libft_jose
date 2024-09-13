@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jramire2 <jramire2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 18:49:07 by jramire2          #+#    #+#             */
-/*   Updated: 2024/09/13 13:01:49 by jramire2         ###   ########.fr       */
+/*   Created: 2024/09/12 19:00:25 by jramire2          #+#    #+#             */
+/*   Updated: 2024/09/12 19:03:12 by jramire2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+size_t  ft_strlcat(char *dst, const char *src, size_t dsize)
 {
-	void	*allocated;
-	size_t	total;
 
-	total = nmemb * size;
-    if (total == 0)
-        return (malloc(0));
-	allocated = malloc(total);
-	if (allocated == NULL)
-		return (NULL);
-	ft_memset(allocated, 0, total);
-	return (allocated);
 }
