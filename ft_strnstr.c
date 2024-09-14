@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jramire2 <jramire2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/14 19:55:01 by jramire2          #+#    #+#             */
-/*   Updated: 2024/09/14 20:01:08 by jramire2         ###   ########.fr       */
+/*   Created: 2024/09/15 00:22:51 by jramire2          #+#    #+#             */
+/*   Updated: 2024/09/15 00:31:22 by jramire2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static char	*ft_strcpy(char *dst, const char *src)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	ft_memcpy(dst, src, ft_strlen(src));
-	return (dst);
-}
+	size_t	i;
+	size_t	j;
 
-char	*ft_strdup(const char *s)
-{
-	char	*dup;
-	size_t	len;
-
-	len = ft_strlen(s);
-	dup = malloc((len + 1) * sizeof(char));
-	if (!dup)
-		return (NULL);
-	ft_strcpy(dup, s);
-	dup[len] = '\0';
-	return (dup);
+	if (little == NULL || *little == '\0')
+		return ((char *)big);
+	i = 0;
+	while (big[i] != '\0' && i < len)
+	{
+		j = 0;
+		while (big[i + j] == little[j] && (i + j) < len)
+		{
+			if (little[j + 1] == '\0')
+				return ((char *)(big + i));
+			++j;
+		}
+		++i;
+	}
+	return (NULL);
 }

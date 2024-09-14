@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jramire2 <jramire2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/14 19:55:01 by jramire2          #+#    #+#             */
-/*   Updated: 2024/09/14 20:01:08 by jramire2         ###   ########.fr       */
+/*   Created: 2024/09/15 00:01:57 by jramire2          #+#    #+#             */
+/*   Updated: 2024/09/15 00:04:40 by jramire2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static char	*ft_strcpy(char *dst, const char *src)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	ft_memcpy(dst, src, ft_strlen(src));
-	return (dst);
-}
+	const unsigned char	*ps1;
+	const unsigned char	*ps2;
 
-char	*ft_strdup(const char *s)
-{
-	char	*dup;
-	size_t	len;
-
-	len = ft_strlen(s);
-	dup = malloc((len + 1) * sizeof(char));
-	if (!dup)
-		return (NULL);
-	ft_strcpy(dup, s);
-	dup[len] = '\0';
-	return (dup);
+	ps1 = (const unsigned char *)s1;
+	ps2 = (const unsigned char *)s2;
+	while (n > 0 && *ps1 == *ps2)
+	{
+		--n;
+		++ps1;
+		++ps2;
+	}
+	if (n == 0)
+		return (0);
+	return (*ps1 - *ps2);
 }

@@ -6,7 +6,7 @@
 /*   By: jramire2 <jramire2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 19:00:25 by jramire2          #+#    #+#             */
-/*   Updated: 2024/09/12 19:03:12 by jramire2         ###   ########.fr       */
+/*   Updated: 2024/09/15 00:22:43 by jramire2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,4 +14,18 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dsize)
 {
+	size_t	dst_len;
+	size_t	src_len;
+	size_t	i;
+
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	i = 0;
+	while (src[i] != '\0' && dst_len + i < dsize + 1)
+	{
+		dst[dst_len + i] = src[i];
+		++i;
+	}
+	dst[dst_len + i] = '\0';
+	return (dst_len + src_len);
 }

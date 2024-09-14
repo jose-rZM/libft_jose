@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jramire2 <jramire2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/14 19:55:01 by jramire2          #+#    #+#             */
-/*   Updated: 2024/09/14 20:01:08 by jramire2         ###   ########.fr       */
+/*   Created: 2024/09/14 23:55:28 by jramire2          #+#    #+#             */
+/*   Updated: 2024/09/14 23:59:40 by jramire2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static char	*ft_strcpy(char *dst, const char *src)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	ft_memcpy(dst, src, ft_strlen(src));
-	return (dst);
-}
+	const unsigned char	*ps;
 
-char	*ft_strdup(const char *s)
-{
-	char	*dup;
-	size_t	len;
-
-	len = ft_strlen(s);
-	dup = malloc((len + 1) * sizeof(char));
-	if (!dup)
+	ps = (const unsigned char *)s;
+	while (n > 0 && *ps != c)
+	{
+		++ps;
+		--n;
+	}
+	if (n == 0)
 		return (NULL);
-	ft_strcpy(dup, s);
-	dup[len] = '\0';
-	return (dup);
+	return ((void *)ps);
 }
