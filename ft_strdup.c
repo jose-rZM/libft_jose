@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jramire2 <jramire2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 18:49:07 by jramire2          #+#    #+#             */
-/*   Updated: 2024/09/13 20:41:30 by jramire2         ###   ########.fr       */
+/*   Created: 2024/09/14 19:55:01 by jramire2          #+#    #+#             */
+/*   Updated: 2024/09/14 20:01:08 by jramire2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+static char	*ft_strcpy(char *dst, const char *src)
 {
-	void	*allocated;
-	size_t	total;
+	ft_memcpy(dst, src, ft_strlen(src));
+	return (dst);
+}
 
-	total = nmemb * size;
-	if (total == 0)
-		return (malloc(0));
-	else if (total / nmemb != size)
+char	*ft_strdup(const char *s)
+{
+	char	*dup;
+    size_t  len;
+    
+    len = ft_strlen(s);
+	dup = malloc((len + 1) * sizeof(char));
+	if (!dup)
 		return (NULL);
-	allocated = malloc(total);
-	if (allocated == NULL)
-		return (NULL);
-	ft_memset(allocated, 0, total);
-	return (allocated);
+	ft_strcpy(dup, s);
+    dup[len] = '\0';
+	return (dup);
 }
