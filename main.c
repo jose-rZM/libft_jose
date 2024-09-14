@@ -5,9 +5,12 @@
 
 int	main(void)
 {
-	char	*s = "hola mundo";
-	char	*needle = NULL;
-    char *uwu = ft_strnstr(s, needle, 9);
-    printf("%s", uwu);
+	char	*s;
+	char	*needle;
+	char	*uwu;
 
+	s = "hola mundo";
+	needle = NULL;
+	uwu = ft_strnstr(s, needle, 9);
+	printf("%s", uwu);
 }
