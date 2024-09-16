@@ -175,7 +175,101 @@ void	join_tests(void)
 	}
 }
 
+void	trim_tests(void)
+{
+	char	*result;
+
+	// Test 1: Eliminar caracteres desde ambos extremos
+	result = ft_strtrim("**$hola*", "*$");
+	if (result)
+	{
+		printf("Test 1: %s\n", result); // Resultado esperado: "hola"
+		free(result);
+	}
+	else
+	{
+		printf("Test 1: Error en la reserva de memoria\n");
+	}
+	// Test 2: Sin caracteres para eliminar
+	result = ft_strtrim("hola", "*$");
+	if (result)
+	{
+		printf("Test 2: %s\n", result); // Resultado esperado: "hola"
+		free(result);
+	}
+	else
+	{
+		printf("Test 2: Error en la reserva de memoria\n");
+	}
+	// Test 3: Eliminar todos los caracteres
+	result = ft_strtrim("****", "*");
+	if (result)
+	{
+		printf("Test 3: %s\n", result); // Resultado esperado: ""
+		free(result);
+	}
+	else
+	{
+		printf("Test 3: Error en la reserva de memoria\n");
+	}
+	// Test 4: Cadena vacía
+	result = ft_strtrim("", "*$");
+	if (result)
+	{
+		printf("Test 4: %s\n", result); // Resultado esperado: ""
+		free(result);
+	}
+	else
+	{
+		printf("Test 4: Error en la reserva de memoria\n");
+	}
+	// Test 5: Set vacío (no elimina nada)
+	result = ft_strtrim("hola", "");
+	if (result)
+	{
+		printf("Test 5: %s\n", result); // Resultado esperado: "hola"
+		free(result);
+	}
+	else
+	{
+		printf("Test 5: Error en la reserva de memoria\n");
+	}
+	// Test 6: Cadena NULL
+	result = ft_strtrim(NULL, "*$");
+	if (result)
+	{
+		printf("Test 6: %s\n", result); // Resultado esperado: NULL
+		free(result);
+	}
+	else
+	{
+		printf("Test 6: NULL correctamente manejado\n");
+	}
+	// Test 7: Set NULL (no elimina nada)
+	result = ft_strtrim("**$hola*", NULL);
+	if (result)
+	{
+		printf("Test 7: %s\n", result); // Resultado esperado: "**$hola*"
+		free(result);
+	}
+	else
+	{
+		printf("Test 7: Error en la reserva de memoria\n");
+	}
+	// Test 8: Cadena y set NULL
+	result = ft_strtrim(NULL, NULL);
+	if (result)
+	{
+		printf("Test 8: %s\n", result); // Resultado esperado: NULL
+		free(result);
+	}
+	else
+	{
+		printf("Test 8: NULL correctamente manejado\n");
+	}
+}
+
 int	main(void)
 {
-	join_tests();
+	trim_tests();
 }
