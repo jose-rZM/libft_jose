@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jramire2 <jramire2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/15 20:21:22 by jramire2          #+#    #+#             */
-/*   Updated: 2024/09/16 15:19:07 by jramire2         ###   ########.fr       */
+/*   Created: 2024/09/16 15:20:54 by jramire2          #+#    #+#             */
+/*   Updated: 2024/09/16 15:32:45 by jramire2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdlib.h"
+#include <stdlib.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*sub;
-	size_t	s_len;
+	size_t	s1_len;
+	size_t	s2_len;
+	char	*joined;
 
-	if (!s)
-		return (NULL);
-	s_len = ft_strlen(s);
-	sub = ft_calloc(len + 1, sizeof(char));
-	if (!sub)
+	if (!s1 || !s2)
 	{
 		return (NULL);
 	}
-	if (start <= s_len)
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	joined = ft_calloc(s1_len + s2_len + 1, sizeof(char));
+	if (!joined)
 	{
-		ft_memcpy(sub, s + start, len);
+		return (NULL);
 	}
-	return ((char *)sub);
+	ft_memmove(joined, s1, s1_len);
+	ft_memmove(joined + s1_len, s2, s2_len);
+	return (joined);
 }

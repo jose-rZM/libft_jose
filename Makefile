@@ -18,7 +18,11 @@ MANDATORY_PART 	   = ft_isalpha \
 					 ft_memchr \
 					 ft_memcmp \
 					 ft_strnstr \
-					 ft_atoi
+					 ft_atoi \
+					 ft_calloc \
+					 ft_strdup \
+					 ft_substr \
+					 ft_strjoin
 
 CC	= cc
 
