@@ -269,7 +269,71 @@ void	trim_tests(void)
 	}
 }
 
+void	print_split_result(char **result)
+{
+	int	i;
+
+	if (result)
+	{
+		i = 0;
+		while (result[i])
+		{
+			printf("Palabra %d: %s\n", i + 1, result[i]);
+			free(result[i]); // Liberar cada palabra
+			i++;
+		}
+		free(result); // Liberar el array de punteros
+	}
+	else
+	{
+		printf("Error en la reserva de memoria\n");
+	}
+}
+
+void	split_tests(void)
+{
+	char	**result;
+
+	// Test 1: Cadena con palabras separadas por un delimitador
+	result = ft_split("hola,que,tal", ',');
+	printf("Test 1:\n");
+	print_split_result(result); // Resultado esperado: "hola", "que", "tal"
+	// Test 2: Cadena con delimitadores consecutivos
+	result = ft_split("hola,,que,,tal", ',');
+	printf("Test 2:\n");
+	print_split_result(result); // Resultado esperado: "hola", "que", "tal"
+	// Test 3: Cadena que empieza y termina con delimitadores
+	result = ft_split(",hola,que,tal,", ',');
+	printf("Test 3:\n");
+	print_split_result(result); // Resultado esperado: "hola", "que", "tal"
+	// Test 4: Cadena sin el delimitador
+	result = ft_split("holaquetal", ',');
+	printf("Test 4:\n");
+	print_split_result(result); // Resultado esperado: "holaquetal"
+	// Test 5: Cadena vacía
+	result = ft_split("", ',');
+	printf("Test 5:\n");
+	print_split_result(result); // Resultado esperado: NULL o array vacío
+	// Test 6: Solo delimitadores
+	result = ft_split(",,,", ',');
+	printf("Test 6:\n");
+	print_split_result(result); // Resultado esperado: NULL o array vacío
+	// Test 7: Delimitador no presente en la cadena
+	result = ft_split("holaquetal", ';');
+	printf("Test 7:\n");
+	print_split_result(result); // Resultado esperado: "holaquetal"
+	// Test 8: Cadena NULL
+	result = ft_split(NULL, ',');
+	printf("Test 8:\n");
+	print_split_result(result);
+	// Test 9: Delimitador NULL (no válido en C,
+		pero puede probarse como caso extremo)
+	result = ft_split("holaquetal", '\0');
+	printf("Test 9:\n");
+	print_split_result(result); // Resultado esperado: "holaquetal"
+}
+
 int	main(void)
 {
-	trim_tests();
+	split_tests();
 }
