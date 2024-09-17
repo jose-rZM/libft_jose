@@ -326,8 +326,6 @@ void	split_tests(void)
 	result = ft_split(NULL, ',');
 	printf("Test 8:\n");
 	print_split_result(result);
-	// Test 9: Delimitador NULL (no válido en C,
-		pero puede probarse como caso extremo)
 	result = ft_split("holaquetal", '\0');
 	printf("Test 9:\n");
 	print_split_result(result); // Resultado esperado: "holaquetal"
@@ -415,7 +413,65 @@ void	itoa_tests(void)
 	}
 }
 
+char	sample_function(unsigned int i, char c)
+{
+	return (c + i); // Por ejemplo, desplaza el carácter por su índice
+}
+
+char	to_upper_even(unsigned int i, char c)
+{
+	if (i % 2 == 0 && c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
+}
+
+void	strmapi_tests(void)
+{
+	char	*result;
+
+	// Test 1: Aplicar la función de desplazamiento en una cadena normal
+	result = ft_strmapi("abc", sample_function);
+	if (result)
+	{
+		printf("Test 1: %s\n", result);
+			// Resultado esperado: "ace" (cada carácter desplazado por su índice)
+		free(result);
+	}
+	else
+	{
+		printf("Test 1: Error en la reserva de memoria\n");
+	}
+	// Test 2: Cadena vacía
+	result = ft_strmapi("", sample_function);
+	if (result)
+	{
+		printf("Test 2: %s\n", result); // Resultado esperado: ""
+		free(result);
+	}
+	else
+	{
+		printf("Test 2: Error en la reserva de memoria\n");
+	}
+	// Test 3: Función que convierte a mayúsculas los caracteres en posiciones pares
+	result = ft_strmapi("abcdef", to_upper_even);
+	if (result)
+	{
+		printf("Test 3: %s\n", result); // Resultado esperado: "AbCdEf"
+		free(result);
+	}
+	else
+	{
+		printf("Test 3: Error en la reserva de memoria\n");
+	}
+	// Test 4: Cadena NULL
+	result = ft_strmapi(NULL, sample_function);
+	if (!result)
+	{
+		printf("Test 4: NULL correctamente manejado\n");
+	}
+}
+
 int	main(void)
 {
-	itoa_tests();
+	strmapi_tests();
 }
