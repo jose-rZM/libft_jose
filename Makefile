@@ -30,7 +30,8 @@ MANDATORY_PART 	   = ft_isalpha \
 					 ft_striteri \
 					 ft_putchar_fd \
 					 ft_putstr_fd \
-					 ft_putendl_fd
+					 ft_putendl_fd \
+					 ft_putnbr_fd
 
 BONUS_PART		= ft_lstnew \
 				  ft_lstadd_front \
