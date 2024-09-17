@@ -24,7 +24,8 @@ MANDATORY_PART 	   = ft_isalpha \
 					 ft_substr \
 					 ft_strjoin \
 					 ft_strtrim \
-					 ft_split
+					 ft_split \
+					 ft_itoa
 
 CC	= cc
 

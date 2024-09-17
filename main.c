@@ -333,7 +333,89 @@ void	split_tests(void)
 	print_split_result(result); // Resultado esperado: "holaquetal"
 }
 
+void	itoa_tests(void)
+{
+	char	*result;
+
+	// Test 1: Número positivo
+	result = ft_itoa(12345);
+	if (result)
+	{
+		printf("Test 1: %s\n", result); // Resultado esperado: "12345"
+		free(result);
+	}
+	else
+	{
+		printf("Test 1: Error en la reserva de memoria\n");
+	}
+	// Test 2: Número negativo
+	result = ft_itoa(-12345);
+	if (result)
+	{
+		printf("Test 2: %s\n", result); // Resultado esperado: "-12345"
+		free(result);
+	}
+	else
+	{
+		printf("Test 2: Error en la reserva de memoria\n");
+	}
+	// Test 3: Cero
+	result = ft_itoa(0);
+	if (result)
+	{
+		printf("Test 3: %s\n", result); // Resultado esperado: "0"
+		free(result);
+	}
+	else
+	{
+		printf("Test 3: Error en la reserva de memoria\n");
+	}
+	// Test 4: Número positivo grande
+	result = ft_itoa(2147483647);
+	if (result)
+	{
+		printf("Test 4: %s\n", result); // Resultado esperado: "2147483647"
+		free(result);
+	}
+	else
+	{
+		printf("Test 4: Error en la reserva de memoria\n");
+	}
+	// Test 5: Número negativo grande
+	result = ft_itoa(-2147483648);
+	if (result)
+	{
+		printf("Test 5: %s\n", result); // Resultado esperado: "-2147483648"
+		free(result);
+	}
+	else
+	{
+		printf("Test 5: Error en la reserva de memoria\n");
+	}
+	// Test 6: Repetido con múltiples llamadas para observar consistencia
+	result = ft_itoa(42);
+	if (result)
+	{
+		printf("Test 6.1: %s\n", result); // Resultado esperado: "42"
+		free(result);
+	}
+	else
+	{
+		printf("Test 6.1: Error en la reserva de memoria\n");
+	}
+	result = ft_itoa(-42);
+	if (result)
+	{
+		printf("Test 6.2: %s\n", result); // Resultado esperado: "-42"
+		free(result);
+	}
+	else
+	{
+		printf("Test 6.2: Error en la reserva de memoria\n");
+	}
+}
+
 int	main(void)
 {
-	split_tests();
+	itoa_tests();
 }
