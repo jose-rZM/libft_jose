@@ -434,7 +434,7 @@ void	strmapi_tests(void)
 	if (result)
 	{
 		printf("Test 1: %s\n", result);
-			// Resultado esperado: "ace" (cada carácter desplazado por su índice)
+		// Resultado esperado: "ace" (cada carácter desplazado por su índice)
 		free(result);
 	}
 	else
