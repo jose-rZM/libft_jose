@@ -32,6 +32,16 @@ MANDATORY_PART 	   = ft_isalpha \
 					 ft_putstr_fd \
 					 ft_putendl_fd
 
+BONUS_PART		= ft_lstnew \
+				  ft_lstadd_front \
+				  ft_lstsize \
+				  ft_lstlast \
+				  ft_lstadd_back \
+				  ft_lstdelone \
+				  ft_lstclear \
+				  ft_lstiter \
+				  ft_lstmap
+
 CC	= cc
 
 CFLAGS	= -Wall -Wextra -Werror
@@ -39,8 +49,10 @@ CFLAGS	= -Wall -Wextra -Werror
 LIB	= libft.a
 
 SRCS	= $(MANDATORY_PART:%=%.c)
+BONUS_SRCS = $(BONUS_PART:%=%.c)
 
 OBJS	= $(MANDATORY_PART:%=%.o)
+BONUS_OBJS = $(BONUS_PART:%=%.o)
 
 NAME	= $(LIB)
 
@@ -50,6 +62,10 @@ $(NAME):
 
 all: $(NAME)
 
+bonus: $(OBJS) $(BONUS_OBJS)
+	$(CC) $(CFLAGS) -c $(SRCS) $(BONUS_SRCS) -I./
+	ar -rc $(LIB) $(OBJS) $(BONUS_OBJS)
+
 clean:
 	rm -f $(OBJS)
 
@@ -58,4 +74,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all, clean, fclean, re
+.PHONY: all bonus clean fclean re
