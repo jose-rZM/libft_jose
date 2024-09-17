@@ -28,7 +28,8 @@ MANDATORY_PART 	   = ft_isalpha \
 					 ft_itoa \
 					 ft_strmapi \
 					 ft_striteri \
-					 ft_putchar_fd
+					 ft_putchar_fd \
+					 ft_putstr_fd 
 
 CC	= cc
 
