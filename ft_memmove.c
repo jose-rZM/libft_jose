@@ -6,7 +6,7 @@
 /*   By: jramire2 <jramire2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 13:27:00 by jramire2          #+#    #+#             */
-/*   Updated: 2024/09/12 17:07:21 by jramire2         ###   ########.fr       */
+/*   Updated: 2024/09/18 10:56:52 by jramire2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	i;
 
+	if (dest == NULL && src == NULL)
+	{
+		return (NULL);
+	}
 	if (src < dest)
 	{
 		i = n;

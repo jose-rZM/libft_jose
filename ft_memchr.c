@@ -6,7 +6,7 @@
 /*   By: jramire2 <jramire2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 23:55:28 by jramire2          #+#    #+#             */
-/*   Updated: 2024/09/14 23:59:40 by jramire2         ###   ########.fr       */
+/*   Updated: 2024/09/18 10:48:38 by jramire2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	const unsigned char	*ps;
 
 	ps = (const unsigned char *)s;
-	while (n > 0 && *ps != c)
+	while (n > 0 && *ps != (unsigned char)c)
 	{
 		++ps;
 		--n;

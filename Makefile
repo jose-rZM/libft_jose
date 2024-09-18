@@ -68,11 +68,11 @@ bonus: $(OBJS) $(BONUS_OBJS)
 	ar -rc $(LIB) $(OBJS) $(BONUS_OBJS)
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all bonus clean fclean re so

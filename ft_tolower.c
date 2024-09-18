@@ -6,7 +6,7 @@
 /*   By: jramire2 <jramire2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 13:00:47 by jramire2          #+#    #+#             */
-/*   Updated: 2024/09/11 13:02:28 by jramire2         ###   ########.fr       */
+/*   Updated: 2024/09/18 10:46:54 by jramire2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_tolower(int c)
 {
-	if (c >= 'A' && c <= 'B')
+	if (c >= 'A' && c <= 'Z')
 		return (c - 'A' + 'a');
 	return (c);
 }
