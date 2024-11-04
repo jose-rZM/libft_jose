@@ -6,13 +6,11 @@
 /*   By: jramire2 <jramire2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:21:09 by jramire2          #+#    #+#             */
-/*   Updated: 2024/09/16 16:49:01 by jramire2         ###   ########.fr       */
+/*   Updated: 2024/10/31 14:35:00 by jramire2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 static size_t	count_words(char const *s, char c)
 {

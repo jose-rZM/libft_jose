@@ -6,12 +6,11 @@
 /*   By: jramire2 <jramire2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 18:09:24 by jramire2          #+#    #+#             */
-/*   Updated: 2024/09/17 13:00:25 by jramire2         ###   ########.fr       */
+/*   Updated: 2024/10/31 14:18:18 by jramire2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 static size_t	num_length(int n)
 {

@@ -6,7 +6,7 @@
 /*   By: jramire2 <jramire2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 13:35:22 by jramire2          #+#    #+#             */
-/*   Updated: 2024/09/11 13:38:03 by jramire2         ###   ########.fr       */
+/*   Updated: 2024/10/03 11:22:12 by jramire2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != '\0' && *s != c)
-	{
-		++s;
-	}
-	if (*s == '\0' && c != '\0')
-		return (NULL);
-	return ((char *)s);
+	if (c == 0)
+		return ((char *)s + ft_strlen(s));
+	return (ft_memchr(s, c, ft_strlen(s)));
 }
